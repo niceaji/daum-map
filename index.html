@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>test index</title>
+</head>
+<body ng-app="Test">
+
+<div ng-controller="MapCtrl" id="map">
+    <button type="button" ng-click="openMap()">지도검색</button>
+    <div>위도 {{ lat }}</div>
+    <div>경도 {{ lng }}</div>
+    <div>주소 {{ addr }}</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script>
+
+
+    var app = angular.module('Test', [])
+
+            .controller('MapCtrl', function ($scope, $window) {
+
+                $scope.openMap=function() {
+                    $window.open('map.html', '', 'width=800,height=700');
+                };
+
+                $window.callbackMapWindow = function(a){
+                    $scope.addr = a;
+                    $scope.$apply();
+                };
+            });
+</script>
+</body>
+</html>

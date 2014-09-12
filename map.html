@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/css/app.css"/>
+</head>
+
+<body ng-app="MapApp">
+
+<daum-map level="3" lat="37.537123" lng="127.005523"></daum-map>
+
+<div class="info-ctrl" ng-controller="InfoCtrl">
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="query" placeholder="주소로 검색">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+
+    <!--<div class="addr" ng-bind="addr"></div>-->
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+
+<!-- TODO. apikey 변경! -->
+<script src="http://apis.daum.net/maps/maps3.js?apikey=e866cec0285c57e9b2dbb1a5ac1cbf3df754dcf3"
+        charset="utf-8"></script>
+
+<script src="lib/util/dmap.js"></script>
+<script src="lib/app.js"></script>
+<script src="lib/directive/daum-map.js"></script>
+<script src="lib/services/coord2addr.js"></script>
+
+</body>
+</html>
