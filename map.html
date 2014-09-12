@@ -9,26 +9,30 @@
 
 <body ng-app="MapApp">
 
-<daum-map level="3" lat="37.537123" lng="127.005523"></daum-map>
+<daum-map level="9" lat="33.380038917758824" lng="126.554480321402"></daum-map>
 
 <div class="info-ctrl" ng-controller="InfoCtrl">
+    <form ng-submit="searchAddr()">
     <div class="input-group">
-        <input type="text" class="form-control" ng-model="query" placeholder="주소로 검색">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
+            <input type="text" class="form-control" ng-model="query" placeholder="주소로 검색">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="sumbit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
     </div>
-
+    </form>
+    <ul class="search-list list-unstyled" ng-show="isSearchResult">
+        <li ng-repeat="item in items"><span class="glyphicon glyphicon-bookmark"></span> {{ item.title }}</li>
+    </ul>
     <!--<div class="addr" ng-bind="addr"></div>-->
 </div>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>-->
 
-<!-- TODO. apikey 변경! -->
+<!-- TODO. apikey 변경! 지도형 API -->
 <script src="http://apis.daum.net/maps/maps3.js?apikey=e866cec0285c57e9b2dbb1a5ac1cbf3df754dcf3"
         charset="utf-8"></script>
 
@@ -36,6 +40,7 @@
 <script src="lib/app.js"></script>
 <script src="lib/directive/daum-map.js"></script>
 <script src="lib/services/coord2addr.js"></script>
+<script src="lib/services/addr2coord.js"></script>
 
 </body>
 </html>

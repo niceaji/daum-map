@@ -12,9 +12,9 @@ body {
     position: absolute;
     top: 5px;
     left: 5px;
-    font-size:12px;
+    font-size: 12px;
     z-index: 9999;
-    width:300px;
+    width: 400px;
 }
 
 .info-ctrl .addr {
@@ -22,4 +22,25 @@ body {
     color: #eee;
     padding: 5px;
 
+}
+
+.info-ctrl .search-list {
+    width: 100%;
+    opacity: 0.5;
+    color: #fff;
+    padding: 2px;
+    margin: 2px 0;
+    background-color: #333333;
+    border-radius: 5px;
+}
+
+.info-ctrl .search-list li {
+    padding: 5px;
+    border-bottom: 1px solid #666666;
+    cursor: pointer;
+    display: block;
+}
+
+.info-ctrl .search-list li:last-child {
+    border-bottom: none;
 }
