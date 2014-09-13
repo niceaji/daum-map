@@ -3,30 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>test index</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
 </head>
 <body ng-app="Test">
 
-<div ng-controller="MapCtrl" id="map">
-    <button type="button" ng-click="openMap()">지도검색</button>
-    <div>위도 {{ lat }}</div>
-    <div>경도 {{ lng }}</div>
-    <div>주소 {{ addr }}</div>
+
+<div ng-controller="MainCtrl" id="map" class="container">
+    <h1>지도 주소 검색</h1>
+    <blockquote><a href="http://dna.daum.net/apis/maps">Daum지도 API</a>와 <a href="https://angularjs.org/">Angular.js</a>를 이용한 지도예제</blockquote>
+
+    <button type="button" class="btn btn-default" ng-click="openMap()">지도검색</button>
+    <a href="map.html">맵보기</a>
+    <ul ng-show="lat" style="margin:5px">
+        <li>위도 : {{ lat }}</li>
+        <li>경도 : {{ lng }}</li>
+        <li>주소 : {{ addr }}</li>
+    </ul>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <script>
 
-
     var app = angular.module('Test', [])
 
-            .controller('MapCtrl', function ($scope, $window) {
+            .controller('MainCtrl', function ($scope, $window) {
 
-                $scope.openMap=function() {
-                    $window.open('map.html', '', 'width=900,height=700');
+                $scope.openMap = function () {
+                    $window.open('map.html', '', 'width=1000,height=700');
                 };
 
-                $window.callbackMapWindow = function(a){
-                    $scope.addr = a;
+                $window.callbackMapWindow = function (lat, lng, content) {
+                    $scope.lat = lat;
+                    $scope.lng = lng;
+                    $scope.addr = content;
                     $scope.$apply();
                 };
             });
