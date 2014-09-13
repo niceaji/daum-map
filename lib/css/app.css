@@ -1,6 +1,5 @@
 html, body {
     height: 100%;
-
 }
 
 body {
@@ -9,16 +8,18 @@ body {
     font-size: 12px;
 
 }
-
-.info-ctrl {
-    position: absolute;
-    z-index: 9999;
-    top: 5px;
-    left: 420px;
+.map-ctrl {
+    height: 100%;
 }
+/*.info-ctrl {*/
+    /*position: absolute;*/
+    /*z-index: 9999;*/
+    /*top: 5px;*/
+    /*left: 420px;*/
+/*}*/
 
-.info-ctrl .content {
-    background: #333;
+.content {
+    background: #333 ;
     opacity: .9;
     color: #fff;
     padding: 5px;

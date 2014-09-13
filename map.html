@@ -13,7 +13,7 @@
 
 <div class="search-ctrl" ng-controller="SearchCtrl">
     <form ng-submit="searchAddr()">
-    <div class="input-group " ng-class="{'has-error':hasError}">
+        <div class="input-group " ng-class="{'has-error':hasError}">
             <input type="text" class="form-control" ng-model="query" placeholder="주소만 검색이 됩니다">
             <span class="delete glyphicon glyphicon-remove"
                   ng-show="isResult" ng-click="deleteResult()"></span>
@@ -22,7 +22,7 @@
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </span>
-    </div>
+        </div>
     </form>
     <ul class="result list-unstyled" ng-show="isResult">
         <li ng-repeat="item in items" ng-click="moveMap(item)">
@@ -32,17 +32,21 @@
     <!--<div class="addr" ng-bind="addr"></div>-->
 </div>
 
-<div class="info-ctrl" ng-controller="InfoCtrl">
-    <div class="content" ng-show="content">
-    <span class="glyphicon glyphicon-map-marker"></span>
-    {{ content }}
-    <button ng-show="hasOpener" class="btn btn-success btn-xs" ng-click="select()">
-        <span class="glyphicon glyphicon-ok"></span>선택
-    </button>
+<!--<div class="info-ctrl" ng-controller="InfoCtrl">-->
+<!--</div>-->
+
+
+<script type="text/ng-template" id="info-overlay.html">
+    <div class="content">
+        <div class="content">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        {{ content }}
+        <button ng-show="hasOpener" class="btn btn-success btn-xs" ng-click="select()">
+            <span class="glyphicon glyphicon-ok"></span>선택
+        </button>
     </div>
-</div>
-
-
+    </div>
+</script>
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>-->
@@ -52,11 +56,11 @@
 <script src="http://apis.daum.net/maps/maps3.js?apikey=e866cec0285c57e9b2dbb1a5ac1cbf3df754dcf3"
         charset="utf-8"></script>
 
-<!--<script src="lib/util/dmap.js"></script>-->
 <script src="lib/app.js"></script>
-<script src="lib/controllers/info-ctrl.js"></script>
+<script src="lib/services/config.js"></script>
 <script src="lib/controllers/search-ctrl.js"></script>
 <script src="lib/directive/daum-map.js"></script>
+<script src="lib/directive/info-overlay.js"></script>
 <script src="lib/services/coord2addr.js"></script>
 <script src="lib/services/addr2coord.js"></script>
 <script src="lib/services/dmap.js"></script>
